@@ -1,0 +1,41 @@
+{
+  "name": "hardqode-studio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "gulp watch"
+  },
+  "dependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-scss": "^1.4.0",
+    "npm": "^6.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mskuroedov/hq-studio.git"
+  },
+  "author": "mskuroedov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mskuroedov/hq-studio/issues"
+  },
+  "homepage": "https://github.com/mskuroedov/hq-studio#readme",
+  "devDependencies": {
+    "gulp-postcss": "^8.0.0",
+    "postcss-load-config": "^2.0.0"
+  },
+  "postcss": {
+    "parser": "sugarss",
+    "map": false,
+    "plugins": {
+      "postcss-plugin": {}
+    }
+  }
+}

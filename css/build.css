@@ -1,0 +1,167 @@
+body {
+  font-family: 'Fira Sans', sans-serif;
+  background-color: #724FE1; }
+
+.main-section {
+  color: white; }
+  @media (min-width: 768px) {
+    .main-section {
+      padding-top: 55px; } }
+  .main-section h1 {
+    font-weight: 800;
+    line-height: normal;
+    font-size: 32px;
+    margin-bottom: 14px; }
+    @media (min-width: 768px) {
+      .main-section h1 {
+        font-size: 64px; } }
+  .main-section h3 {
+    font-weight: 300;
+    line-height: 26px;
+    font-size: 18px;
+    margin-bottom: 24px; }
+    @media (min-width: 768px) {
+      .main-section h3 {
+        font-size: 20px; } }
+    @media (min-width: 1200px) {
+      .main-section h3 {
+        font-size: 24px;
+        margin-bottom: 40px; } }
+  .main-section .form-section {
+    margin-bottom: 24px; }
+  .main-section .btn-submit {
+    margin-bottom: 48px; }
+  .main-section .girl {
+    width: 288px; }
+    @media (min-width: 768px) {
+      .main-section .girl {
+        width: 368px; } }
+    @media (min-width: 1200px) {
+      .main-section .girl {
+        width: 560px;
+        margin-top: -20px; } }
+
+.form-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-right: 40px; }
+  .form-box input {
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 18px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    outline: none;
+    flex: 1;
+    font-weight: 400;
+    line-height: normal;
+    font-size: 18px;
+    color: #1a1a1a; }
+    .form-box input.error {
+      border: 1px solid red; }
+      .form-box input.error + .error-msg {
+        display: block; }
+  .form-box .error-msg {
+    display: none;
+    color: red;
+    font-size: 10px;
+    position: absolute;
+    bottom: -15px;
+    right: 40px; }
+  .form-box__control {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 24px;
+    height: 24px; }
+    .form-box__control .btn {
+      padding: 0;
+      border: 0;
+      position: relative;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      cursor: pointer; }
+      .form-box__control .btn svg path {
+        fill: #FFE92B;
+        transition: all .2s; }
+      .form-box__control .btn:hover svg path {
+        fill: #FFC21E; }
+      .form-box__control .btn__rm {
+        cursor: pointer; }
+        .form-box__control .btn__rm svg path {
+          fill: white;
+          transition: all .2s;
+          opacity: .2; }
+        .form-box__control .btn__rm:hover svg path {
+          fill: white;
+          opacity: 1; }
+
+.btn-submit {
+  padding: 22px 48px 20px;
+  background: linear-gradient(180deg, #FFE92B 0%, #FFC21E 100%);
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 80px;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 18px;
+  color: #000;
+  border: 0;
+  outline: none; }
+  .btn-submit:active, .btn-submit:focus {
+    outline: none; }
+  .btn-submit:hover {
+    background: linear-gradient(180deg, #FFC21E 0%, #FFE92B 100%);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1), 0px 3px 7px rgba(0, 0, 0, 0.15); }
+
+.modal .modal-content {
+  border-radius: 8px; }
+@media (min-width: 576px) {
+  .modal .modal-dialog {
+    max-width: 368px; } }
+.modal .modal-body {
+  padding: 16px 16px 40px 32px; }
+  .modal .modal-body .button {
+    margin-bottom: 5px; }
+    .modal .modal-body .button svg {
+      opacity: .2;
+      transition: all .2s; }
+    .modal .modal-body .button:active, .modal .modal-body .button:focus {
+      outline: none; }
+    .modal .modal-body .button:hover svg {
+      opacity: 1; }
+.modal h4 {
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  font-size: 24px;
+  color: #252525;
+  margin-bottom: 12px; }
+.modal p {
+  font-style: normal;
+  font-weight: normal;
+  line-height: 26px;
+  font-size: 18px;
+  margin-bottom: 0;
+  color: #252525; }
+
+.modal-backdrop.show {
+  background-color: #724FE1;
+  opacity: .95; }
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 752px; } }
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px; } }
+
+header {
+  padding-top: 32px;
+  padding-bottom: 22px; }

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SMM</title>
+    <meta content="width = device-width,initial-scale=1" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,800" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/build.css">
+</head>
+<body>
+<header>
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="./assets/logo.svg" alt="">
+        </a>
+    </div>
+</header>
+<section class="main-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>Давай заглянем к конкурентам и сделаем лучше</h1>
+            </div>
+            <div class="col-12 col-md-6 col-xl-7 pr-md-0">
+                <h3>Проанализируем соцсети конкурентов <br class="d-none d-xl-block"> и предложим лучшую стратегию</h3>
+            </div>
+            <div class="col-12 col-md-9 col-xl-6" id="form">
+                <div class="form-section">
+                    <div class="form-box">
+                        <input type="text" id="email" placeholder="Ваш e-mail" v-model="email" @change="checkEmail">
+                        <span class="error-msg">Введите корректный e-mail</span>
+                    </div>
+                    <div class="dynamic-inputs" v-for="(value,index) in inputs">
+                        <div class="form-box social-box">
+                            <input type="text" placeholder="Соцсеть для анализа" v-model="value"
+                                   @change="changeInput(index)">
+                            <div class="form-box__control" v-if="isLast(index)">
+                                <div class="btn add" @click="addForm">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 0C5.373 0 0 5.373 0 12C0 18.627 5.373 24 12 24C18.627 24 24 18.627 24 12C24 5.373 18.627 0 12 0ZM18 13H13V18H11V13H6V11H11V6H13V11H18V13Z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="form-box__control" v-else>
+                                <div class="btn__rm">
+                                    <div class="btn__rm" @click="removeForm(index)">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M24 21.076L14.816 11.981L23.908 2.807L21.076 0L11.986 9.179L2.81 0.091L0 2.901L9.186 12.006L0.091 21.19L2.901 24L12.013 14.808L21.193 23.908L24 21.076Z"
+                                                  fill="white"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <button class="btn-submit" data-toggle="modal" data-target="#successModal">Получить отчёт</button>
+            </div>
+            <div class="col-12 col-xl-6">
+                <img src="./assets/girl.png" class="girl" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" tabindex="-1" id="successModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-auto ml-auto">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 16.6852L11.7293 9.48496L18.9272 2.22221L16.6852 0L9.48892 7.26671L2.22458 0.0720417L0 2.29663L7.27225 9.50475L0.0720417 16.7754L2.29663 19L9.51029 11.723L16.7778 18.9272L19 16.6852Z"
+                                      fill="black"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <h4>Спасибо!</h4>
+                <p>Ваша заявка принята, наши специалисты приступят к работе в ближайшее время</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/bootstrap.bundle.min.js"></script>
+<script src="./js/jquery.inputmask.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '#form',
+        data: {
+            email: '',
+            inputs: [''],
+            maxLength: 3,
+            dis:true
+        },
+        methods: {
+            isLast: function (i) {
+                i++;
+
+                if (this.inputs.length === 1) {
+                    return true;
+                } else {
+                    if (i === this.inputs.length && i !== this.maxLength) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            },
+            removeForm: function (key) {
+                this.inputs = this.inputs.filter(function (value, index) {
+                    return index !== key;
+                })
+            },
+            changeInput: function (i) {
+                this.inputs[i] = event.target.value;
+            },
+            addForm: function (key) {
+                if (this.inputs.length !== this.maxLength) {
+                    this.inputs.push('');
+                }
+            },
+            checkEmail(e) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var elem = e.target;
+                var check = re.test(elem.value.toLowerCase());
+
+                if (check) {
+                    this.dis = true;
+                    elem.classList.remove("error");
+                } else {
+                    this.dis = false;
+                    elem.classList.add("error");
+                }
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
